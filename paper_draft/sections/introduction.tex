@@ -1,0 +1,44 @@
+\section{Introduction}
+\label{sec:intro}
+
+How long should a task instruction be?
+Prompts used in practice have grown steadily longer: system prompts for assistants and agents now often run to hundreds or thousands of words, full of rules, edge cases, rationale, and reminders.
+The usual intuition is that more detail can only help, since the model gets more information about what we want.
+A competing intuition, often stated as ``attention dilution,'' holds that long prompts bury the key requirement and make models worse.
+Both views shape how people write prompts, yet neither has been tested in a controlled way.
+
+The question matters most for the settings where prompts are cheapest to change and models are weakest.
+Small open-weight models run on-device or at low cost, and practitioners often copy long instructions written for frontier models into them.
+If long instructions hurt, and if the harm depends on task type or model size, then prompt length is a design choice with real consequences rather than a matter of taste.
+
+Prior work gives indirect evidence.
+Models degrade when the \emph{input context} grows, even with irrelevant text~\citep{shi2023distracted,liu2024lost,levy2024same}, and instruction following degrades as the \emph{number of constraints} grows~\citep{zhou2023ifeval,jiang2024followbench}.
+However, these studies vary the input or the constraint set, not the length and detail of the task instruction itself.
+They also rarely separate two explanations for a length effect: \emph{more tokens} (dilution) \versus \emph{more content} (over-specification, interference from extra rules).
+
+{\bf What do we do?}
+We build a nested ladder of five instruction tiers (\minimal, \concise, \standard, \detailed, \exhaustive) for each of four task types: classification, extraction, generation, and reasoning.
+Each tier adds one block of content to the previous tier, so a longer tier never removes information, and every tier states the same core output-format constraint.
+We add a \padded control that has the \standard content plus task-irrelevant filler, word-matched to \exhaustive.
+We evaluate five instruction-tuned \qwen models (0.5B, 1.5B, 3B, 7B, 14B) on 252 fixed items per task, and we score task correctness and format compliance separately.
+We pre-registered six hypotheses, including that classification and extraction peak at \standard and drop 3--7 points at \exhaustive, and that 7B models suffer more than larger ones.
+
+{\bf What do we find?}
+Most hypotheses fail.
+For 3B--14B models, the \standard$\to$\exhaustive change is within $\pm$1.6 points on every task.
+After Holm correction over the 20 primary tests, the only significant change is a $+1.0$ ROUGE-L \emph{gain} for 7B on summarization.
+The 7B and 14B models respond to length in the same way (difference-in-differences between $-1.4$ and $+1.2$ points, all n.s.).
+Harm is confined to the smallest models: the 0.5B model's classification accuracy drops from 62.3\% at \minimal to 43.7\% at \standard and 39.3\% at \exhaustive, as its predictions collapse onto ``Business.''
+The size of the \standard$\to$\exhaustive drop shrinks with model size (Spearman $\rho=-0.9$ for both classification and extraction).
+The padding control shows that token count is not the cause: filler never significantly hurts any model, and it lifts 0.5B accuracy from 43.7\% to 59.5\%.
+The largest single gain from instruction detail comes earlier in the ladder: going from \minimal to \concise raises 7B and 14B extraction F1 by about 10 points.
+
+Our contributions are:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item We design a controlled, nested five-tier instruction ladder for four task types, with a fixed format constraint in every tier and a length-matched padding control that separates token count from content.
+    \item We conduct a paired evaluation of five \qwen models (0.5B--14B) over 6 conditions and 4 tasks (30{,}240 generations), with bootstrap confidence intervals, permutation tests, and Holm correction.
+    \item We show that instruction length is roughly neutral for models of 3B parameters and above, and that harm from long instructions is a small-model effect caused by instruction content and its position, not by length.
+    \item We give concrete prompt-writing guidance: include a short task definition, restate the output format at the end of long prompts, and keep instructions minimal (or in the system message) for sub-2B models.
+\end{itemize}
+
+\Secref{sec:related} reviews related work, \secref{sec:method} describes the design, \secref{sec:results} reports results, \secref{sec:discussion} interprets them and lists limitations, and \secref{sec:conclusion} concludes.

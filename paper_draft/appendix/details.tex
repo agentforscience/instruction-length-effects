@@ -1,0 +1,25 @@
+\section{Experimental Details}
+\label{app:details}
+
+\para{Example tiers.}
+The classification \minimal tier is: ``Classify the news article into one of these categories: World, Sports, Business, Sci/Tech. Respond with only the category name.''
+The \concise tier adds one-line definitions of each category (\eg ``Business: companies, markets, the economy, and finance'').
+The \standard tier adds five numbered guidelines, such as ``Articles about a technology company's earnings, stock price, mergers, or lawsuits are usually Business; articles about its products, software, research, or security problems are usually Sci/Tech,'' and ends with ``Output exactly one of the four category names, spelled exactly as given (World, Sports, Business, Sci/Tech), with no explanation, punctuation, or extra words.''
+The \detailed tier adds guidance for difficult domains (health, energy, space, telecom, courts) and a tie-breaking rule.
+The \exhaustive tier adds the purpose of the task, extended definitions, a step-by-step procedure, common mistakes, a restated format, and a final reminder.
+The \padded filler begins: ``Background information about this project (not needed for the task): The documentation program that produced these materials began several years ago as a small internal initiative within the operations group\ldots''
+
+\para{Compute.}
+Runs used one slice (5--42\,GB) of a shared NVIDIA RTX A6000 (48\,GB).
+A full model run of 6{,}048 prompts took about 2 minutes for 0.5B and 1.5B, 11 minutes for 7B, and 80 minutes for 14B (slowed by memory contention).
+
+\para{Software.}
+Python 3.12, vLLM 0.32.0, PyTorch 2.13, pandas 3.0.6, NumPy 2.3.5, SciPy 1.18.1, and rouge-score 0.1.2.
+Data sampling, vLLM, and bootstrap all use seed 42.
+Raw generations for every prompt are stored with the code.
+
+\para{Statistical tests.}
+Bootstrap CIs use 5{,}000 item resamples.
+Paired differences use a two-sided sign-flip permutation test.
+Holm correction is applied within the 20 primary \standard\versus\exhaustive tests and within the 40 padding tests.
+We also applied Holm correction across all 320 score and compliance comparisons. This is very conservative: 32 comparisons remain significant ($p_{\text{holm}}=.03$ each, the floor set by the number of permutations). They include the 0.5B classification drops from \minimal and \concise to \standard (18.7 and 15.9 points), the 0.5B and 1.5B classification gains of \padded over \standard, the \minimal$\to$\concise extraction gains for 7B and 14B (10.0 and 9.9 F1), and the 26.6-point reasoning-compliance gain of \exhaustive over \standard for 3B. No \standard\versus\exhaustive \emph{score} difference survives this correction.

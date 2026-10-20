@@ -1,0 +1,39 @@
+\begin{table}[t]
+\centering
+\caption{Task score (\%) by instruction tier, $n=252$ items per cell. Classification and reasoning are accuracy, extraction is token F1, and generation is ROUGE-L F1. The best condition per row is in {\bf bold}. Binary-metric 95\% CIs are about $\pm$5--6 points; ROUGE-L CIs are about $\pm$1 point. For $\geq$3B models, \standard and \exhaustive are within 1.6 points on every task. Only the 0.5B model shows a large decline with length, and the \padded control does not reproduce it.}
+\label{tab:main}
+\small
+\begin{tabular}{@{}llcccccc@{}}
+\toprule
+Task & Model & \minimal & \concise & \standard & \detailed & \exhaustive & \padded \\
+\midrule
+\multirow{5}{*}{\shortstack[l]{\textsc{Cls}\\(\agnews)}}
+ & 0.5B & {\bf 62.3} & 59.5 & 43.7 & 45.2 & 39.3 & 59.5 \\
+ & 1.5B & 72.2 & 64.7 & 65.9 & 71.4 & 64.7 & {\bf 73.8} \\
+ & 3B   & 70.2 & 70.2 & 73.8 & 70.6 & 74.2 & {\bf 78.6} \\
+ & 7B   & 78.2 & 79.4 & 80.6 & 77.0 & 80.6 & {\bf 82.5} \\
+ & 14B  & 82.1 & 79.8 & 83.3 & 83.7 & {\bf 84.5} & 81.0 \\
+\midrule
+\multirow{5}{*}{\shortstack[l]{\textsc{Ext}\\(\squad)}}
+ & 0.5B & {\bf 73.3} & 72.3 & 67.7 & 70.0 & 64.9 & 73.2 \\
+ & 1.5B & 84.8 & {\bf 86.5} & 84.8 & 83.8 & 82.7 & 84.0 \\
+ & 3B   & {\bf 86.7} & 86.3 & 83.0 & 83.9 & 82.4 & 77.9 \\
+ & 7B   & 83.3 & {\bf 93.2} & 91.0 & 91.7 & 92.6 & 90.8 \\
+ & 14B  & 83.1 & 93.0 & 94.4 & 94.3 & {\bf 94.6} & 92.9 \\
+\midrule
+\multirow{5}{*}{\shortstack[l]{\textsc{Gen}\\(\cnndm)}}
+ & 0.5B & 23.6 & 23.5 & {\bf 24.0} & 23.7 & {\bf 24.0} & 23.9 \\
+ & 1.5B & 24.3 & 24.4 & 24.4 & 24.3 & {\bf 24.6} & 24.5 \\
+ & 3B   & 24.6 & 24.8 & 25.4 & 25.6 & 25.4 & {\bf 25.8} \\
+ & 7B   & 24.2 & 24.9 & 24.9 & 25.7 & {\bf 26.0} & 25.4 \\
+ & 14B  & 24.1 & 24.4 & 25.6 & 25.6 & {\bf 25.8} & 25.1 \\
+\midrule
+\multirow{5}{*}{\shortstack[l]{\textsc{Rsn}\\(\gsm)}}
+ & 0.5B & {\bf 45.6} & 44.0 & 43.7 & 42.9 & 44.8 & 43.3 \\
+ & 1.5B & 69.4 & 72.2 & 70.2 & 69.0 & 67.5 & {\bf 72.6} \\
+ & 3B   & 86.9 & {\bf 89.3} & 85.7 & 88.1 & 83.7 & 88.5 \\
+ & 7B   & {\bf 96.0} & 94.4 & 92.5 & 94.4 & 93.3 & 93.3 \\
+ & 14B  & 96.0 & {\bf 97.6} & 96.0 & 96.0 & 96.4 & 96.0 \\
+\bottomrule
+\end{tabular}
+\end{table}

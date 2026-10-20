@@ -1,0 +1,10 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We asked whether longer, more detailed task instructions help or hurt instruction-tuned language models.
+Using a nested five-tier instruction ladder over four task types and five \qwen sizes, with a length-matched padding control, we find that more detail mostly does not hurt.
+For 3B--14B models, task performance from \standard to \exhaustive is flat for classification and reasoning and rises slightly for generation, and the predicted 3--7 point penalty does not appear.
+Harm from long instructions is a small-model effect (0.5B and partly 1.5B), and it is driven by instruction content and its position before the input, not by token count.
+The key takeaway is simple: give the model a short, specific task definition, and for capable models feel free to add detail beyond that.
+
+Future work should test other model families (Llama, Gemma) and larger or API-only models, write several paraphrases per tier to separate wording from length, build ``adversarial-realistic'' long prompts with conflicting or excessive rules, extend the ladder to 5k--20k-token agent system prompts, evaluate generation with human or LLM judges, and use padding controls that are token-matched at both the start and the end of the instruction to separate recency from length.

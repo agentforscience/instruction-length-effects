@@ -1,0 +1,28 @@
+\section{Related Work}
+\label{sec:related}
+
+\para{Long and irrelevant context.}
+A line of work shows that language models get worse as their input grows.
+\citet{shi2023distracted} add irrelevant sentences to math word problems and find large accuracy drops.
+\citet{liu2024lost} show that models use information at the start and end of a long context better than information in the middle.
+\citet{levy2024same} pad reasoning inputs with filler and find that accuracy falls well before the context limit.
+These studies vary the \emph{input} that the model reasons over.
+Unlike them, we vary the \emph{task instruction} and hold the input fixed, and we work at realistic prompt lengths (about 100 to 1{,}700 tokens) rather than multi-thousand-token contexts.
+Our padding control borrows the logic of filler-based studies, but we use it to separate a length effect from a content effect inside the instruction.
+
+\para{Instruction following under many constraints.}
+IFEval~\citep{zhou2023ifeval} measures whether models obey verifiable format constraints, and FollowBench~\citep{jiang2024followbench} shows that compliance drops as constraints are added one level at a time.
+Our nested design is similar in spirit, since each tier adds content to the previous one.
+Unlike these benchmarks, our tiers elaborate a \emph{single} fixed format constraint rather than add new ones, so we can ask whether extra explanation helps or hurts compliance with the same requirement.
+We also measure task correctness separately from compliance.
+
+\para{Prompt sensitivity and instruction wording.}
+Models are sensitive to surface features of prompts, including formatting~\citep{sclar2024quantifying} and whether the instruction is even meaningful~\citep{webson2022prompt}.
+\citet{mishra2022reframing} find that reframing long, complex instructions into shorter, itemized ones improves GPT-3 performance.
+\citet{zhao2021calibrate} show that few-shot predictions are biased toward labels that are frequent or appear near the end of the prompt.
+The label collapse we observe in the 0.5B model resembles this recency and majority-label bias, but it is caused by instruction rules rather than demonstrations.
+Prompt compression methods such as LLMLingua~\citep{jiang2023llmlingua} assume that long prompts can be shortened with little loss; our results suggest that, for capable models, shortening also brings little gain.
+
+\para{Instruction-tuned models.}
+Instruction tuning~\citep{wei2022finetuned,ouyang2022training} trains models to follow natural-language task descriptions.
+We study one modern instruction-tuned family, \qwen~\citep{qwen2025qwen25}, across a within-family scale ladder, which lets us attribute differences to model size rather than training recipe.

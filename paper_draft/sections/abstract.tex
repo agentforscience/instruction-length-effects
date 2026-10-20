@@ -1,0 +1,11 @@
+Practitioners often write long, detailed task instructions on the assumption that more detail cannot hurt, while a common counter-claim holds that overly long prompts dilute attention and degrade performance.
+We test this directly.
+We build a nested five-tier instruction ladder (from ${\sim}18$ to ${\sim}900$ words), where each tier adds content to the previous one and every tier states the same output-format constraint.
+We apply it to four task types (classification on \agnews, extraction on \squad, summarization on \cnndm, and math reasoning on \gsm) and five instruction-tuned \qwen models from 0.5B to 14B parameters.
+We also add a length-matched control that pads the mid-length instruction with irrelevant filler.
+For 3B--14B models, instruction length barely matters: moving from a ${\sim}150$-word to a ${\sim}900$-word instruction changes task scores by at most 1.6 points, and the only change that survives multiple-comparison correction is a 1.0-point ROUGE-L \emph{gain}.
+The hypothesized 3--7 point penalty for long instructions does not appear, and 7B is not hurt more than 14B.
+Degradation appears only below 2B parameters: 0.5B classification accuracy falls from 62.3\% (shortest tier) to 39.3\% (longest), mostly because predictions collapse onto one label.
+The padding control rules out simple token dilution. Irrelevant filler never significantly hurts any model, and it restores 0.5B accuracy to 59.5\%.
+Content and its position before the input, not length, drive the damage.
+For models of 3B parameters and above, prompt authors can add detail freely; for sub-2B models, short instructions are safer.

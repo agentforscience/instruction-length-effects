@@ -1,0 +1,55 @@
+\section{Discussion}
+\label{sec:discussion}
+
+{\bf Why does more detail not hurt 7B and 14B models?}
+Our longest prompts are 1{,}000--1{,}700 tokens, far below the multi-thousand-token regimes where context-length degradation has been reported~\citep{liu2024lost,levy2024same}.
+Our \exhaustive tiers are also consistent: they elaborate the task and never contradict it.
+Under these conditions, extra rules are either redundant (classification, reasoning) or mildly useful (span boundaries in extraction, ``lead with the most newsworthy fact'' in summarization).
+The main lever is the first step from \minimal to a short, specific instruction; beyond that, length is close to neutral.
+The cost of a long instruction shows up elsewhere: the 7B model doubles its reasoning length when told to verify its work, which raises latency and cost without changing accuracy.
+
+{\bf What goes wrong in tiny models?}
+The 0.5B model's failure is a shift in its default label, not a loss of the format.
+Two observations point to the text immediately before the input as the cause.
+First, \padded has exactly the same task content as \standard but recovers most of the accuracy; the only difference is that the article follows neutral prose instead of a rule list ending in ``Output exactly one of \ldots (World, Sports, Business, Sci/Tech).''
+Second, moving the instruction to the system message removes most of the drop at \standard.
+For a 0.5B model, rules about companies, markets, and technology placed right before the article seem to prime the ``Business'' label, much like the recency bias reported for few-shot demonstrations~\citep{zhao2021calibrate}.
+This is an interference effect of content and position, not a dilution effect of length.
+A residual decline of about 12 points under system placement shows that small models are also harmed by detailed rule content itself.
+
+{\bf Practical implications.}
+Our results support four simple rules.
+(1) Always include a short, task-specific definition; \minimal prompts leave about 10 F1 points on the table for extraction.
+(2) For $\geq$3B instruction-tuned models, extra detail is cheap insurance with no measurable accuracy cost, but it can lengthen outputs.
+(3) Restate the output format at the end of a long prompt; this made \exhaustive the most compliant tier for reasoning.
+(4) For sub-2B models, prefer minimal instructions, or put them in the system message.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+\para{One model family.}
+All five models are \qwen. The planned Llama-3.1-8B and \qwen-32B runs could not be completed because the shared GPUs were occupied, so conclusions about ``larger models'' rest on 14B alone and cross-family generality is untested.
+
+\para{One wording per tier.}
+Within a tier, wording and length are confounded.
+The nested design and the padding control reduce this problem but do not remove it.
+A different \exhaustive prompt, for example one with conflicting or over-specific rules, could well hurt; ours were written to be realistic and consistent.
+
+\para{Imperfect padding control.}
+\padded is word-matched, which gives 7--12\% fewer tokens than \exhaustive.
+It also changes what precedes the input, so the \padded\versus\standard comparison mixes length with recency.
+
+\para{Statistical power.}
+With $n=252$ per cell, binary-metric CIs are about $\pm$5--6 points, so the power to detect a 3-point effect in a single cell is low.
+The size correlation uses only five points.
+
+\para{Metrics and decoding.}
+ROUGE-L is a coarse proxy for summary quality, and we did not run human or LLM-judge evaluation.
+\agnews labels are noisy, which caps accuracy at roughly 85--90\%.
+Compliance definitions are strict and chosen by us.
+We use greedy decoding with a single seed and capture variability only through item resampling.
+All four datasets are public and likely seen in pre-training, which affects absolute levels more than within-model comparisons across tiers.
+
+\para{Broader impact.}
+This work aims to help practitioners write better prompts and does not introduce new capabilities.
+A risk is over-generalization: our finding that detail is harmless for $\geq$3B models comes from one family at moderate prompt lengths and should not be read as a guarantee for every model or for very long agent prompts.

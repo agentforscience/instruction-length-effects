@@ -1,0 +1,169 @@
+model,task,condition,mean_output_tokens,truncated_rate,mean_output_words,top_failures
+qwen2.5-0.5b,cls,concise,2.111111111111111,0.0,1.0,confused:Sci/Tech->Business:52; confused:World->Business:28; confused:Sports->Business:14; extra_text:5
+qwen2.5-0.5b,cls,detailed,2.0555555555555554,0.0,1.0,confused:Sci/Tech->Business:57; confused:World->Business:51; confused:Sports->Business:25; extra_text:4
+qwen2.5-0.5b,cls,exhaustive,2.015873015873016,0.0,1.0,confused:Sci/Tech->Business:61; confused:World->Business:57; confused:Sports->Business:32; confused:Sports->World:2
+qwen2.5-0.5b,cls,minimal,2.0952380952380953,0.0,1.0,confused:Sci/Tech->Business:52; confused:World->Business:34; extra_text:7; confused:Sports->Business:4
+qwen2.5-0.5b,cls,padded,2.0476190476190474,0.0,1.0,confused:Sci/Tech->Business:56; confused:World->Business:33; confused:Sports->Business:7; extra_text:6
+qwen2.5-0.5b,cls,standard,2.0634920634920637,0.0,1.0,confused:World->Business:57; confused:Sci/Tech->Business:57; confused:Sports->Business:24; extra_text:5
+qwen2.5-0.5b,ext,concise,6.9523809523809526,0.003968253968253968,3.8253968253968256,not_verbatim_or_multiline:58; wrong_span:21; span_too_short:7; span_too_long:6
+qwen2.5-0.5b,ext,detailed,6.261904761904762,0.0,3.242063492063492,not_verbatim_or_multiline:43; wrong_span:29; span_too_short:11; span_too_long:8
+qwen2.5-0.5b,ext,exhaustive,7.658730158730159,0.003968253968253968,4.218253968253968,not_verbatim_or_multiline:61; wrong_span:24; span_too_short:12; span_too_long:12
+qwen2.5-0.5b,ext,minimal,7.686507936507937,0.0,4.345238095238095,not_verbatim_or_multiline:81; wrong_span:12; span_too_short:4; span_too_long:3
+qwen2.5-0.5b,ext,padded,7.674603174603175,0.011904761904761904,4.317460317460317,not_verbatim_or_multiline:56; wrong_span:20; span_too_long:5; span_too_short:5
+qwen2.5-0.5b,ext,standard,6.698412698412699,0.007936507936507936,3.642857142857143,not_verbatim_or_multiline:45; wrong_span:27; span_too_short:11; span_too_long:9
+qwen2.5-0.5b,gen,concise,115.18253968253968,0.07539682539682539,88.1984126984127,over_80_words:142; sentence_count_1:6; sentence_count_5:4; format_other:3
+qwen2.5-0.5b,gen,detailed,107.9484126984127,0.047619047619047616,83.10714285714286,over_80_words:115; sentence_count_1:8; format_other:5; sentence_count_5:5
+qwen2.5-0.5b,gen,exhaustive,117.72619047619048,0.07936507936507936,90.92063492063492,over_80_words:147; format_other:7; sentence_count_1:3; sentence_count_7:1
+qwen2.5-0.5b,gen,minimal,111.51587301587301,0.03571428571428571,86.2420634920635,over_80_words:130; sentence_count_1:8; format_other:5; sentence_count_5:3
+qwen2.5-0.5b,gen,padded,95.78968253968254,0.023809523809523808,73.90079365079364,over_80_words:84; sentence_count_1:16; format_other:8; sentence_count_5:1
+qwen2.5-0.5b,gen,standard,107.90873015873017,0.06349206349206349,82.81349206349206,over_80_words:110; sentence_count_1:12; format_other:8; sentence_count_5:2
+qwen2.5-0.5b,rsn,concise,301.2579365079365,0.007936507936507936,177.8293650793651,format_noncompliant:243; wrong_number:5
+qwen2.5-0.5b,rsn,detailed,295.8333333333333,0.023809523809523808,174.1547619047619,format_noncompliant:237; wrong_number:6
+qwen2.5-0.5b,rsn,exhaustive,282.87301587301585,0.01984126984126984,163.37301587301587,format_noncompliant:211; wrong_number:23
+qwen2.5-0.5b,rsn,minimal,300.37698412698415,0.03571428571428571,185.18650793650792,format_noncompliant:244; wrong_number:4
+qwen2.5-0.5b,rsn,padded,273.37698412698415,0.011904761904761904,162.72619047619048,format_noncompliant:248; wrong_number:2
+qwen2.5-0.5b,rsn,standard,301.75,0.015873015873015872,177.8095238095238,format_noncompliant:213; wrong_number:18
+qwen2.5-1.5b,cls,concise,2.0634920634920637,0.0,1.0,confused:Sci/Tech->Business:36; confused:Sci/Tech->World:18; confused:Sports->World:15; confused:Business->World:13
+qwen2.5-1.5b,cls,detailed,2.1031746031746033,0.0,1.0,confused:Sci/Tech->Business:43; confused:Sports->World:8; confused:Sci/Tech->World:8; confused:Business->World:4
+qwen2.5-1.5b,cls,exhaustive,2.0396825396825395,0.0,1.0,confused:Sci/Tech->Business:35; confused:Sci/Tech->World:22; confused:Business->World:14; confused:Sports->World:10
+qwen2.5-1.5b,cls,minimal,2.0396825396825395,0.0,1.0,confused:Sci/Tech->Business:42; extra_text:15; confused:Sci/Tech->World:6; confused:Business->World:6
+qwen2.5-1.5b,cls,padded,2.0952380952380953,0.0,1.0,confused:Sci/Tech->Business:35; confused:Sci/Tech->World:11; confused:Business->World:8; confused:Sports->World:5
+qwen2.5-1.5b,cls,standard,2.0476190476190474,0.0,1.0,confused:Sci/Tech->Business:40; confused:Sci/Tech->World:18; confused:Business->World:12; confused:Sports->World:11
+qwen2.5-1.5b,ext,concise,6.103174603174603,0.0,3.119047619047619,not_verbatim_or_multiline:21; span_too_long:8; wrong_span:7; span_too_short:2
+qwen2.5-1.5b,ext,detailed,6.353174603174603,0.0,3.2857142857142856,not_verbatim_or_multiline:20; span_too_long:14; wrong_span:7; span_too_short:4
+qwen2.5-1.5b,ext,exhaustive,6.7896825396825395,0.0,3.607142857142857,not_verbatim_or_multiline:21; span_too_long:16; wrong_span:7; span_too_short:2
+qwen2.5-1.5b,ext,minimal,7.2936507936507935,0.0,4.051587301587301,not_verbatim_or_multiline:32; span_too_long:13; wrong_span:2; span_too_short:1
+qwen2.5-1.5b,ext,padded,6.222222222222222,0.0,3.2142857142857144,not_verbatim_or_multiline:25; span_too_long:10; wrong_span:9; span_too_short:3
+qwen2.5-1.5b,ext,standard,6.583333333333333,0.0,3.4444444444444446,not_verbatim_or_multiline:21; span_too_long:12; wrong_span:5; span_too_short:4
+qwen2.5-1.5b,gen,concise,114.32936507936508,0.007936507936507936,87.52380952380952,over_80_words:152; sentence_count_5:3
+qwen2.5-1.5b,gen,detailed,109.07142857142857,0.0,82.82142857142857,over_80_words:141; sentence_count_1:3; sentence_count_5:1
+qwen2.5-1.5b,gen,exhaustive,106.02380952380952,0.003968253968253968,80.63492063492063,over_80_words:120; sentence_count_1:4; sentence_count_5:3; sentence_count_6:1
+qwen2.5-1.5b,gen,minimal,114.68253968253968,0.0,88.48809523809524,over_80_words:162; format_other:2; sentence_count_1:2; sentence_count_5:1
+qwen2.5-1.5b,gen,padded,110.34126984126983,0.015873015873015872,84.28174603174604,over_80_words:132; sentence_count_5:3; sentence_count_1:2; format_other:1
+qwen2.5-1.5b,gen,standard,113.0515873015873,0.003968253968253968,86.27777777777777,over_80_words:143; sentence_count_1:3; sentence_count_5:2
+qwen2.5-1.5b,rsn,concise,264.22222222222223,0.003968253968253968,162.15873015873015,format_noncompliant:126; wrong_number:32
+qwen2.5-1.5b,rsn,detailed,268.07936507936506,0.007936507936507936,162.71428571428572,format_noncompliant:69; wrong_number:48
+qwen2.5-1.5b,rsn,exhaustive,280.74603174603175,0.023809523809523808,178.56746031746033,format_noncompliant:92; wrong_number:49
+qwen2.5-1.5b,rsn,minimal,245.72222222222223,0.011904761904761904,154.02380952380952,format_noncompliant:138; wrong_number:24
+qwen2.5-1.5b,rsn,padded,254.99603174603175,0.007936507936507936,158.85714285714286,format_noncompliant:109; wrong_number:36
+qwen2.5-1.5b,rsn,standard,265.66269841269843,0.007936507936507936,161.1706349206349,format_noncompliant:95; wrong_number:45
+qwen2.5-14b,cls,concise,2.3253968253968256,0.003968253968253968,1.0317460317460319,confused:Sci/Tech->Business:27; confused:Business->Sci/Tech:6; confused:Sci/Tech->World:5; confused:World->Business:3
+qwen2.5-14b,cls,detailed,2.380952380952381,0.003968253968253968,1.0317460317460319,confused:Sci/Tech->Business:21; confused:Business->Sci/Tech:5; confused:Business->World:3; confused:Sci/Tech->World:3
+qwen2.5-14b,cls,exhaustive,2.373015873015873,0.0,1.0,confused:Sci/Tech->Business:17; confused:Business->Sci/Tech:7; confused:Sci/Tech->World:4; confused:Business->World:3
+qwen2.5-14b,cls,minimal,2.4206349206349205,0.007936507936507936,1.1031746031746033,confused:Sci/Tech->Business:24; confused:World->Business:6; confused:Business->Sci/Tech:5; confused:Sci/Tech->Sports:2
+qwen2.5-14b,cls,padded,2.3492063492063493,0.003968253968253968,1.0317460317460319,confused:Sci/Tech->Business:21; confused:Sci/Tech->World:7; confused:Business->World:5; confused:Business->Sci/Tech:5
+qwen2.5-14b,cls,standard,2.380952380952381,0.003968253968253968,1.0555555555555556,confused:Sci/Tech->Business:18; confused:Sci/Tech->World:6; confused:Business->Sci/Tech:5; confused:Business->World:3
+qwen2.5-14b,ext,concise,6.273809523809524,0.003968253968253968,3.0714285714285716,span_too_long:7; not_verbatim_or_multiline:5; span_too_short:2
+qwen2.5-14b,ext,detailed,5.972222222222222,0.0,3.0396825396825395,not_verbatim_or_multiline:8; span_too_short:2; span_too_long:2
+qwen2.5-14b,ext,exhaustive,5.765873015873016,0.0,2.9126984126984126,not_verbatim_or_multiline:9; span_too_long:3; span_too_short:2
+qwen2.5-14b,ext,minimal,9.678571428571429,0.003968253968253968,5.7063492063492065,span_too_long:27; not_verbatim_or_multiline:12; span_too_short:2
+qwen2.5-14b,ext,padded,6.2023809523809526,0.0,3.238095238095238,not_verbatim_or_multiline:6; span_too_long:4; wrong_span:1; span_too_short:1
+qwen2.5-14b,ext,standard,5.948412698412699,0.0,2.984126984126984,not_verbatim_or_multiline:6; span_too_long:5; span_too_short:2
+qwen2.5-14b,gen,concise,90.17460317460318,0.0,66.83333333333333,over_80_words:16; sentence_count_5:2
+qwen2.5-14b,gen,detailed,92.53174603174604,0.0,67.67460317460318,over_80_words:24; sentence_count_6:1
+qwen2.5-14b,gen,exhaustive,93.6984126984127,0.0,68.87698412698413,over_80_words:29; sentence_count_5:1
+qwen2.5-14b,gen,minimal,89.25,0.0,66.18650793650794,over_80_words:18
+qwen2.5-14b,gen,padded,95.32142857142857,0.0,70.5,over_80_words:37; sentence_count_5:3; format_other:1
+qwen2.5-14b,gen,standard,94.01190476190476,0.0,68.71428571428571,over_80_words:27; sentence_count_5:1
+qwen2.5-14b,rsn,concise,270.75396825396825,0.0,168.22619047619048,wrong_number:6
+qwen2.5-14b,rsn,detailed,298.61507936507934,0.0,180.71428571428572,wrong_number:9; format_noncompliant:5
+qwen2.5-14b,rsn,exhaustive,403.48015873015873,0.0,268.0515873015873,wrong_number:9
+qwen2.5-14b,rsn,minimal,233.9404761904762,0.0,146.77380952380952,wrong_number:10
+qwen2.5-14b,rsn,padded,287.33730158730157,0.0,178.95634920634922,wrong_number:9; format_noncompliant:5
+qwen2.5-14b,rsn,standard,311.61507936507934,0.0,189.61507936507937,format_noncompliant:18; wrong_number:8
+qwen2.5-3b,cls,concise,2.119047619047619,0.0,1.0,confused:Sci/Tech->Business:48; confused:World->Business:9; confused:Sports->Business:6; no_label:3
+qwen2.5-3b,cls,detailed,2.1904761904761907,0.0,1.0,confused:Sci/Tech->Business:34; confused:Sports->Business:11; confused:Sci/Tech->World:10; confused:Sports->World:6
+qwen2.5-3b,cls,exhaustive,2.238095238095238,0.0,1.0,confused:Sci/Tech->Business:34; confused:Sports->Business:9; confused:Sci/Tech->World:5; confused:World->Business:5
+qwen2.5-3b,cls,minimal,2.0634920634920637,0.0,1.003968253968254,confused:Sci/Tech->Business:52; confused:World->Business:10; extra_text:8; no_label:6
+qwen2.5-3b,cls,padded,2.246031746031746,0.0,1.0,confused:Sci/Tech->Business:27; confused:Sci/Tech->World:9; confused:Business->World:6; confused:Sports->World:3
+qwen2.5-3b,cls,standard,2.238095238095238,0.0,1.0,confused:Sci/Tech->Business:30; confused:Sci/Tech->World:8; confused:Sports->Business:8; confused:Sports->World:7
+qwen2.5-3b,ext,concise,5.376984126984127,0.0,2.5595238095238093,not_verbatim_or_multiline:31; wrong_span:11; span_too_short:5; span_too_long:3
+qwen2.5-3b,ext,detailed,4.940476190476191,0.0,2.25,not_verbatim_or_multiline:22; wrong_span:10; span_too_short:9; span_too_long:3
+qwen2.5-3b,ext,exhaustive,5.186507936507937,0.003968253968253968,2.4325396825396823,not_verbatim_or_multiline:26; span_too_short:13; wrong_span:10; span_too_long:2
+qwen2.5-3b,ext,minimal,6.285714285714286,0.0,3.3293650793650795,not_verbatim_or_multiline:17; span_too_long:9; wrong_span:7; span_too_short:5
+qwen2.5-3b,ext,padded,4.916666666666667,0.0,2.2301587301587302,not_verbatim_or_multiline:26; wrong_span:19; span_too_short:12; span_too_long:3
+qwen2.5-3b,ext,standard,5.059523809523809,0.0,2.3333333333333335,not_verbatim_or_multiline:23; wrong_span:14; span_too_short:12; span_too_long:3
+qwen2.5-3b,gen,concise,80.89682539682539,0.0,58.76190476190476,over_80_words:8; sentence_count_1:5; format_other:1; sentence_count_5:1
+qwen2.5-3b,gen,detailed,87.7063492063492,0.0,63.21825396825397,over_80_words:15; sentence_count_1:8; sentence_count_5:3; format_other:2
+qwen2.5-3b,gen,exhaustive,89.88095238095238,0.0,65.48809523809524,over_80_words:33; sentence_count_1:6
+qwen2.5-3b,gen,minimal,77.84126984126983,0.0,57.68650793650794,over_80_words:5; sentence_count_1:3; format_other:1
+qwen2.5-3b,gen,padded,81.70238095238095,0.0,59.6031746031746,over_80_words:14; sentence_count_1:11; sentence_count_5:2; format_other:1
+qwen2.5-3b,gen,standard,90.80952380952381,0.0,66.11507936507937,over_80_words:36; sentence_count_1:13; sentence_count_5:2; format_other:2
+qwen2.5-3b,rsn,concise,267.36507936507934,0.0,160.09126984126985,wrong_number:26; format_noncompliant:11
+qwen2.5-3b,rsn,detailed,270.5833333333333,0.0,157.81746031746033,format_noncompliant:34; wrong_number:29
+qwen2.5-3b,rsn,exhaustive,221.56746031746033,0.0,136.68253968253967,wrong_number:37; format_noncompliant:4
+qwen2.5-3b,rsn,minimal,243.61904761904762,0.0,149.79365079365078,format_noncompliant:41; wrong_number:25
+qwen2.5-3b,rsn,padded,263.6666666666667,0.0,157.39285714285714,wrong_number:29; format_noncompliant:12
+qwen2.5-3b,rsn,standard,297.57142857142856,0.0,178.74603174603175,format_noncompliant:71; wrong_number:28
+qwen2.5-7b,cls,concise,2.246031746031746,0.0,1.0,confused:Sci/Tech->Business:31; confused:Sci/Tech->World:6; confused:Business->Sci/Tech:5; confused:World->Business:5
+qwen2.5-7b,cls,detailed,2.1666666666666665,0.0,1.0,confused:Sci/Tech->Business:35; confused:Sci/Tech->World:7; confused:World->Business:5; confused:World->Sports:3
+qwen2.5-7b,cls,exhaustive,2.246031746031746,0.0,1.0,confused:Sci/Tech->Business:26; confused:Sci/Tech->World:8; confused:World->Business:4; confused:Business->Sci/Tech:3
+qwen2.5-7b,cls,minimal,2.2698412698412698,0.0,1.0,confused:Sci/Tech->Business:33; confused:World->Business:9; confused:Business->Sci/Tech:5; confused:World->Sports:3
+qwen2.5-7b,cls,padded,2.2777777777777777,0.0,1.0,confused:Sci/Tech->Business:21; confused:Sci/Tech->World:10; confused:Business->World:4; confused:Business->Sci/Tech:3
+qwen2.5-7b,cls,standard,2.238095238095238,0.0,1.0,confused:Sci/Tech->Business:28; confused:Sci/Tech->World:7; confused:Business->World:3; confused:Business->Sci/Tech:3
+qwen2.5-7b,ext,concise,5.892857142857143,0.0,3.0753968253968256,not_verbatim_or_multiline:6; span_too_long:4; wrong_span:2; span_too_short:1
+qwen2.5-7b,ext,detailed,6.111111111111111,0.0,3.261904761904762,not_verbatim_or_multiline:8; span_too_long:6; span_too_short:3; wrong_span:1
+qwen2.5-7b,ext,exhaustive,5.884920634920635,0.0,3.0753968253968256,not_verbatim_or_multiline:7; span_too_long:5; span_too_short:3; wrong_span:1
+qwen2.5-7b,ext,minimal,8.432539682539682,0.0,5.01984126984127,span_too_long:26; not_verbatim_or_multiline:16; wrong_span:1; span_too_short:1
+qwen2.5-7b,ext,padded,6.511904761904762,0.0,3.507936507936508,span_too_long:9; not_verbatim_or_multiline:7; span_too_short:4; wrong_span:2
+qwen2.5-7b,ext,standard,6.2063492063492065,0.0,3.3293650793650795,span_too_long:8; not_verbatim_or_multiline:6; span_too_short:4; wrong_span:2
+qwen2.5-7b,gen,concise,71.36111111111111,0.0,52.97222222222222,sentence_count_1:17; sentence_count_5:1
+qwen2.5-7b,gen,detailed,76.4563492063492,0.0,55.61904761904762,sentence_count_1:10; over_80_words:4; sentence_count_5:1
+qwen2.5-7b,gen,exhaustive,67.72222222222223,0.0,48.801587301587304,sentence_count_1:21
+qwen2.5-7b,gen,minimal,74.58333333333333,0.0,55.54365079365079,sentence_count_1:9; over_80_words:1
+qwen2.5-7b,gen,padded,78.96825396825396,0.0,58.111111111111114,sentence_count_1:16; over_80_words:7; sentence_count_5:2
+qwen2.5-7b,gen,standard,79.85317460317461,0.0,57.932539682539684,sentence_count_1:10; over_80_words:7; format_other:1; sentence_count_5:1
+qwen2.5-7b,rsn,concise,257.3095238095238,0.0,158.70238095238096,wrong_number:14; format_noncompliant:1
+qwen2.5-7b,rsn,detailed,203.21031746031747,0.003968253968253968,128.52777777777777,wrong_number:13; format_noncompliant:1
+qwen2.5-7b,rsn,exhaustive,437.4087301587302,0.0,301.47222222222223,wrong_number:17
+qwen2.5-7b,rsn,minimal,214.1706349206349,0.0,131.61904761904762,wrong_number:10; format_noncompliant:5
+qwen2.5-7b,rsn,padded,207.0079365079365,0.0,131.0515873015873,wrong_number:17
+qwen2.5-7b,rsn,standard,213.97619047619048,0.0,136.54365079365078,wrong_number:19
+sys_qwen2.5-0.5b,cls,concise,2.126984126984127,0.0,1.0,confused:Sci/Tech->Business:46; confused:World->Business:10; extra_text:6; confused:World->Sports:3
+sys_qwen2.5-0.5b,cls,detailed,2.388888888888889,0.0,1.0,confused:Sci/Tech->Business:31; confused:World->Business:16; confused:World->Sci/Tech:9; confused:Business->Sci/Tech:6
+sys_qwen2.5-0.5b,cls,exhaustive,2.0714285714285716,0.0,1.0,confused:Sci/Tech->Business:49; confused:World->Business:20; confused:Sci/Tech->World:7; confused:Sports->Business:4
+sys_qwen2.5-0.5b,cls,minimal,2.142857142857143,0.0,1.0,confused:Sci/Tech->Business:38; extra_text:16; confused:World->Business:10; confused:World->Sports:5
+sys_qwen2.5-0.5b,cls,padded,2.0555555555555554,0.0,1.0,confused:Sci/Tech->Business:51; confused:World->Business:13; confused:World->Sports:7; extra_text:6
+sys_qwen2.5-0.5b,cls,standard,2.238095238095238,0.0,1.0,confused:Sci/Tech->Business:41; confused:World->Business:20; extra_text:9; confused:World->Sci/Tech:7
+sys_qwen2.5-0.5b,ext,concise,6.142857142857143,0.0,3.2301587301587302,not_verbatim_or_multiline:38; wrong_span:19; span_too_short:7; span_too_long:4
+sys_qwen2.5-0.5b,ext,detailed,6.341269841269841,0.003968253968253968,3.2777777777777777,not_verbatim_or_multiline:30; wrong_span:22; span_too_short:13; span_too_long:7
+sys_qwen2.5-0.5b,ext,exhaustive,6.936507936507937,0.007936507936507936,3.8531746031746033,not_verbatim_or_multiline:44; wrong_span:25; span_too_short:10; span_too_long:7
+sys_qwen2.5-0.5b,ext,minimal,5.936507936507937,0.0,3.0793650793650795,not_verbatim_or_multiline:39; wrong_span:13; span_too_short:6; span_too_long:3
+sys_qwen2.5-0.5b,ext,padded,6.535714285714286,0.0,3.5317460317460316,not_verbatim_or_multiline:43; wrong_span:20; span_too_short:7; span_too_long:4
+sys_qwen2.5-0.5b,ext,standard,6.658730158730159,0.011904761904761904,3.5952380952380953,not_verbatim_or_multiline:35; wrong_span:21; span_too_short:11; span_too_long:8
+sys_qwen2.5-0.5b,gen,concise,74.68650793650794,0.007936507936507936,57.01190476190476,sentence_count_1:48; over_80_words:39; format_other:3; sentence_count_6:1
+sys_qwen2.5-0.5b,gen,detailed,85.34126984126983,0.01984126984126984,65.11904761904762,over_80_words:68; sentence_count_1:34; format_other:4; sentence_count_5:2
+sys_qwen2.5-0.5b,gen,exhaustive,98.19047619047619,0.03968253968253968,75.2936507936508,over_80_words:102; sentence_count_1:26; format_other:6; sentence_count_5:2
+sys_qwen2.5-0.5b,gen,minimal,67.21825396825396,0.007936507936507936,50.46031746031746,sentence_count_1:86; over_80_words:28; sentence_count_5:2; sentence_count_6:2
+sys_qwen2.5-0.5b,gen,padded,71.19047619047619,0.011904761904761904,54.138888888888886,sentence_count_1:75; over_80_words:42; sentence_count_5:1; format_other:1
+sys_qwen2.5-0.5b,gen,standard,77.7579365079365,0.003968253968253968,58.96031746031746,sentence_count_1:53; over_80_words:47; format_other:7; sentence_count_5:3
+sys_qwen2.5-0.5b,rsn,concise,281.48015873015873,0.015873015873015872,165.57142857142858,format_noncompliant:233; wrong_number:12
+sys_qwen2.5-0.5b,rsn,detailed,270.12698412698415,0.01984126984126984,158.1904761904762,format_noncompliant:229; wrong_number:9
+sys_qwen2.5-0.5b,rsn,exhaustive,276.4404761904762,0.01984126984126984,163.79761904761904,format_noncompliant:232; wrong_number:9
+sys_qwen2.5-0.5b,rsn,minimal,242.45238095238096,0.011904761904761904,150.1547619047619,format_noncompliant:228; wrong_number:17
+sys_qwen2.5-0.5b,rsn,padded,281.0,0.007936507936507936,169.0079365079365,format_noncompliant:251; wrong_number:1
+sys_qwen2.5-0.5b,rsn,standard,256.1190476190476,0.007936507936507936,151.3531746031746,format_noncompliant:208; wrong_number:22
+sys_qwen2.5-1.5b,cls,concise,2.0753968253968256,0.0,1.007936507936508,confused:Sci/Tech->Business:36; confused:Sci/Tech->World:14; confused:Business->World:10; extra_text:5
+sys_qwen2.5-1.5b,cls,detailed,2.119047619047619,0.0,1.0,confused:Sci/Tech->Business:40; confused:Sci/Tech->World:8; confused:Business->World:5; confused:World->Business:4
+sys_qwen2.5-1.5b,cls,exhaustive,2.0555555555555554,0.0,1.0,confused:Sci/Tech->Business:36; confused:Sci/Tech->World:18; confused:Business->World:14; confused:Sci/Tech->Sports:3
+sys_qwen2.5-1.5b,cls,minimal,2.0555555555555554,0.0,1.0,confused:Sci/Tech->Business:36; extra_text:15; confused:Sci/Tech->World:5; no_label:4
+sys_qwen2.5-1.5b,cls,padded,2.119047619047619,0.0,1.0,confused:Sci/Tech->Business:34; confused:Sci/Tech->World:12; confused:Business->World:6; extra_text:5
+sys_qwen2.5-1.5b,cls,standard,2.0873015873015874,0.0,1.0,confused:Sci/Tech->Business:44; confused:Sci/Tech->World:7; confused:Business->World:5; confused:Sports->World:4
+sys_qwen2.5-1.5b,ext,concise,5.746031746031746,0.0,2.861111111111111,not_verbatim_or_multiline:22; span_too_long:5; wrong_span:4; span_too_short:3
+sys_qwen2.5-1.5b,ext,detailed,6.841269841269841,0.0,3.6587301587301586,not_verbatim_or_multiline:26; span_too_long:12; span_too_short:7; wrong_span:6
+sys_qwen2.5-1.5b,ext,exhaustive,6.615079365079365,0.0,3.5436507936507935,not_verbatim_or_multiline:26; span_too_long:10; wrong_span:9; span_too_short:8
+sys_qwen2.5-1.5b,ext,minimal,6.599206349206349,0.0,3.4484126984126986,not_verbatim_or_multiline:15; span_too_long:12; span_too_short:3; wrong_span:1
+sys_qwen2.5-1.5b,ext,padded,6.055555555555555,0.0,3.0595238095238093,not_verbatim_or_multiline:18; wrong_span:9; span_too_long:7; span_too_short:5
+sys_qwen2.5-1.5b,ext,standard,6.107142857142857,0.003968253968253968,3.1468253968253967,not_verbatim_or_multiline:22; span_too_short:9; span_too_long:6; wrong_span:6
+sys_qwen2.5-1.5b,gen,concise,105.47222222222223,0.01984126984126984,81.35714285714286,over_80_words:125; sentence_count_1:4; sentence_count_5:3; format_other:1
+sys_qwen2.5-1.5b,gen,detailed,112.18253968253968,0.01984126984126984,85.08730158730158,over_80_words:148; sentence_count_5:6; sentence_count_1:3; format_other:1
+sys_qwen2.5-1.5b,gen,exhaustive,109.15079365079364,0.023809523809523808,82.89682539682539,over_80_words:125; sentence_count_5:5; sentence_count_1:3; format_other:1
+sys_qwen2.5-1.5b,gen,minimal,82.45238095238095,0.0,63.54365079365079,over_80_words:59; sentence_count_1:44; format_other:1; sentence_count_5:1
+sys_qwen2.5-1.5b,gen,padded,105.36507936507937,0.01984126984126984,80.77777777777777,over_80_words:116; sentence_count_1:7; sentence_count_5:6; format_other:2
+sys_qwen2.5-1.5b,gen,standard,106.13095238095238,0.015873015873015872,81.13888888888889,over_80_words:122; sentence_count_1:6; sentence_count_5:3; format_other:1
+sys_qwen2.5-1.5b,rsn,concise,229.4206349206349,0.0,144.49603174603175,format_noncompliant:145; wrong_number:25
+sys_qwen2.5-1.5b,rsn,detailed,173.42857142857142,0.0,109.49603174603175,wrong_number:73; format_noncompliant:20
+sys_qwen2.5-1.5b,rsn,exhaustive,196.3373015873016,0.0,123.82142857142857,wrong_number:76; format_noncompliant:52
+sys_qwen2.5-1.5b,rsn,minimal,204.16666666666666,0.003968253968253968,126.80555555555556,format_noncompliant:150; wrong_number:28
+sys_qwen2.5-1.5b,rsn,padded,213.88492063492063,0.003968253968253968,138.46428571428572,format_noncompliant:149; wrong_number:30
+sys_qwen2.5-1.5b,rsn,standard,173.5595238095238,0.0,109.98412698412699,wrong_number:63; format_noncompliant:55

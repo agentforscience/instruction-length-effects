@@ -1,0 +1,199 @@
+condition              minimal  concise  standard  detailed  exhaustive  padded
+task model                                                                     
+cls  qwen2.5-0.5b          1.0      1.0       1.0       1.0         1.0     1.0
+     qwen2.5-1.5b          1.0      1.0       1.0       1.0         1.0     1.0
+     qwen2.5-14b           1.1      1.0       1.1       1.0         1.0     1.0
+     qwen2.5-3b            1.0      1.0       1.0       1.0         1.0     1.0
+     qwen2.5-7b            1.0      1.0       1.0       1.0         1.0     1.0
+     sys_qwen2.5-0.5b      1.0      1.0       1.0       1.0         1.0     1.0
+     sys_qwen2.5-1.5b      1.0      1.0       1.0       1.0         1.0     1.0
+ext  qwen2.5-0.5b          4.3      3.8       3.6       3.2         4.2     4.3
+     qwen2.5-1.5b          4.1      3.1       3.4       3.3         3.6     3.2
+     qwen2.5-14b           5.7      3.1       3.0       3.0         2.9     3.2
+     qwen2.5-3b            3.3      2.6       2.3       2.2         2.4     2.2
+     qwen2.5-7b            5.0      3.1       3.3       3.3         3.1     3.5
+     sys_qwen2.5-0.5b      3.1      3.2       3.6       3.3         3.9     3.5
+     sys_qwen2.5-1.5b      3.4      2.9       3.1       3.7         3.5     3.1
+gen  qwen2.5-0.5b         86.2     88.2      82.8      83.1        90.9    73.9
+     qwen2.5-1.5b         88.5     87.5      86.3      82.8        80.6    84.3
+     qwen2.5-14b          66.2     66.8      68.7      67.7        68.9    70.5
+     qwen2.5-3b           57.7     58.8      66.1      63.2        65.5    59.6
+     qwen2.5-7b           55.5     53.0      57.9      55.6        48.8    58.1
+     sys_qwen2.5-0.5b     50.5     57.0      59.0      65.1        75.3    54.1
+     sys_qwen2.5-1.5b     63.5     81.4      81.1      85.1        82.9    80.8
+rsn  qwen2.5-0.5b        185.2    177.8     177.8     174.2       163.4   162.7
+     qwen2.5-1.5b        154.0    162.2     161.2     162.7       178.6   158.9
+     qwen2.5-14b         146.8    168.2     189.6     180.7       268.1   179.0
+     qwen2.5-3b          149.8    160.1     178.7     157.8       136.7   157.4
+     qwen2.5-7b          131.6    158.7     136.5     128.5       301.5   131.1
+     sys_qwen2.5-0.5b    150.2    165.6     151.4     158.2       163.8   169.0
+     sys_qwen2.5-1.5b    126.8    144.5     110.0     109.5       123.8   138.5
+                model task   condition                                                                                                            top_failures
+0        qwen2.5-0.5b  cls     concise                 confused:Sci/Tech->Business:52; confused:World->Business:28; confused:Sports->Business:14; extra_text:5
+1        qwen2.5-0.5b  cls    detailed                 confused:Sci/Tech->Business:57; confused:World->Business:51; confused:Sports->Business:25; extra_text:4
+2        qwen2.5-0.5b  cls  exhaustive     confused:Sci/Tech->Business:61; confused:World->Business:57; confused:Sports->Business:32; confused:Sports->World:2
+3        qwen2.5-0.5b  cls     minimal                  confused:Sci/Tech->Business:52; confused:World->Business:34; extra_text:7; confused:Sports->Business:4
+4        qwen2.5-0.5b  cls      padded                  confused:Sci/Tech->Business:56; confused:World->Business:33; confused:Sports->Business:7; extra_text:6
+5        qwen2.5-0.5b  cls    standard                 confused:World->Business:57; confused:Sci/Tech->Business:57; confused:Sports->Business:24; extra_text:5
+6        qwen2.5-0.5b  ext     concise                                          not_verbatim_or_multiline:58; wrong_span:21; span_too_short:7; span_too_long:6
+7        qwen2.5-0.5b  ext    detailed                                         not_verbatim_or_multiline:43; wrong_span:29; span_too_short:11; span_too_long:8
+8        qwen2.5-0.5b  ext  exhaustive                                        not_verbatim_or_multiline:61; wrong_span:24; span_too_short:12; span_too_long:12
+9        qwen2.5-0.5b  ext     minimal                                          not_verbatim_or_multiline:81; wrong_span:12; span_too_short:4; span_too_long:3
+10       qwen2.5-0.5b  ext      padded                                          not_verbatim_or_multiline:56; wrong_span:20; span_too_long:5; span_too_short:5
+11       qwen2.5-0.5b  ext    standard                                         not_verbatim_or_multiline:45; wrong_span:27; span_too_short:11; span_too_long:9
+12       qwen2.5-0.5b  gen     concise                                               over_80_words:142; sentence_count_1:6; sentence_count_5:4; format_other:3
+13       qwen2.5-0.5b  gen    detailed                                               over_80_words:115; sentence_count_1:8; format_other:5; sentence_count_5:5
+14       qwen2.5-0.5b  gen  exhaustive                                               over_80_words:147; format_other:7; sentence_count_1:3; sentence_count_7:1
+15       qwen2.5-0.5b  gen     minimal                                               over_80_words:130; sentence_count_1:8; format_other:5; sentence_count_5:3
+16       qwen2.5-0.5b  gen      padded                                               over_80_words:84; sentence_count_1:16; format_other:8; sentence_count_5:1
+17       qwen2.5-0.5b  gen    standard                                              over_80_words:110; sentence_count_1:12; format_other:8; sentence_count_5:2
+18       qwen2.5-0.5b  rsn     concise                                                                                 format_noncompliant:243; wrong_number:5
+19       qwen2.5-0.5b  rsn    detailed                                                                                 format_noncompliant:237; wrong_number:6
+20       qwen2.5-0.5b  rsn  exhaustive                                                                                format_noncompliant:211; wrong_number:23
+21       qwen2.5-0.5b  rsn     minimal                                                                                 format_noncompliant:244; wrong_number:4
+22       qwen2.5-0.5b  rsn      padded                                                                                 format_noncompliant:248; wrong_number:2
+23       qwen2.5-0.5b  rsn    standard                                                                                format_noncompliant:213; wrong_number:18
+24       qwen2.5-1.5b  cls     concise     confused:Sci/Tech->Business:36; confused:Sci/Tech->World:18; confused:Sports->World:15; confused:Business->World:13
+25       qwen2.5-1.5b  cls    detailed        confused:Sci/Tech->Business:43; confused:Sports->World:8; confused:Sci/Tech->World:8; confused:Business->World:4
+26       qwen2.5-1.5b  cls  exhaustive     confused:Sci/Tech->Business:35; confused:Sci/Tech->World:22; confused:Business->World:14; confused:Sports->World:10
+27       qwen2.5-1.5b  cls     minimal                   confused:Sci/Tech->Business:42; extra_text:15; confused:Sci/Tech->World:6; confused:Business->World:6
+28       qwen2.5-1.5b  cls      padded       confused:Sci/Tech->Business:35; confused:Sci/Tech->World:11; confused:Business->World:8; confused:Sports->World:5
+29       qwen2.5-1.5b  cls    standard     confused:Sci/Tech->Business:40; confused:Sci/Tech->World:18; confused:Business->World:12; confused:Sports->World:11
+30       qwen2.5-1.5b  ext     concise                                           not_verbatim_or_multiline:21; span_too_long:8; wrong_span:7; span_too_short:2
+31       qwen2.5-1.5b  ext    detailed                                          not_verbatim_or_multiline:20; span_too_long:14; wrong_span:7; span_too_short:4
+32       qwen2.5-1.5b  ext  exhaustive                                          not_verbatim_or_multiline:21; span_too_long:16; wrong_span:7; span_too_short:2
+33       qwen2.5-1.5b  ext     minimal                                          not_verbatim_or_multiline:32; span_too_long:13; wrong_span:2; span_too_short:1
+34       qwen2.5-1.5b  ext      padded                                          not_verbatim_or_multiline:25; span_too_long:10; wrong_span:9; span_too_short:3
+35       qwen2.5-1.5b  ext    standard                                          not_verbatim_or_multiline:21; span_too_long:12; wrong_span:5; span_too_short:4
+36       qwen2.5-1.5b  gen     concise                                                                                   over_80_words:152; sentence_count_5:3
+37       qwen2.5-1.5b  gen    detailed                                                               over_80_words:141; sentence_count_1:3; sentence_count_5:1
+38       qwen2.5-1.5b  gen  exhaustive                                           over_80_words:120; sentence_count_1:4; sentence_count_5:3; sentence_count_6:1
+39       qwen2.5-1.5b  gen     minimal                                               over_80_words:162; format_other:2; sentence_count_1:2; sentence_count_5:1
+40       qwen2.5-1.5b  gen      padded                                               over_80_words:132; sentence_count_5:3; sentence_count_1:2; format_other:1
+41       qwen2.5-1.5b  gen    standard                                                               over_80_words:143; sentence_count_1:3; sentence_count_5:2
+42       qwen2.5-1.5b  rsn     concise                                                                                format_noncompliant:126; wrong_number:32
+43       qwen2.5-1.5b  rsn    detailed                                                                                 format_noncompliant:69; wrong_number:48
+44       qwen2.5-1.5b  rsn  exhaustive                                                                                 format_noncompliant:92; wrong_number:49
+45       qwen2.5-1.5b  rsn     minimal                                                                                format_noncompliant:138; wrong_number:24
+46       qwen2.5-1.5b  rsn      padded                                                                                format_noncompliant:109; wrong_number:36
+47       qwen2.5-1.5b  rsn    standard                                                                                 format_noncompliant:95; wrong_number:45
+48        qwen2.5-14b  cls     concise   confused:Sci/Tech->Business:27; confused:Business->Sci/Tech:6; confused:Sci/Tech->World:5; confused:World->Business:3
+49        qwen2.5-14b  cls    detailed   confused:Sci/Tech->Business:21; confused:Business->Sci/Tech:5; confused:Business->World:3; confused:Sci/Tech->World:3
+50        qwen2.5-14b  cls  exhaustive   confused:Sci/Tech->Business:17; confused:Business->Sci/Tech:7; confused:Sci/Tech->World:4; confused:Business->World:3
+51        qwen2.5-14b  cls     minimal  confused:Sci/Tech->Business:24; confused:World->Business:6; confused:Business->Sci/Tech:5; confused:Sci/Tech->Sports:2
+52        qwen2.5-14b  cls      padded   confused:Sci/Tech->Business:21; confused:Sci/Tech->World:7; confused:Business->World:5; confused:Business->Sci/Tech:5
+53        qwen2.5-14b  cls    standard   confused:Sci/Tech->Business:18; confused:Sci/Tech->World:6; confused:Business->Sci/Tech:5; confused:Business->World:3
+54        qwen2.5-14b  ext     concise                                                          span_too_long:7; not_verbatim_or_multiline:5; span_too_short:2
+55        qwen2.5-14b  ext    detailed                                                          not_verbatim_or_multiline:8; span_too_short:2; span_too_long:2
+56        qwen2.5-14b  ext  exhaustive                                                          not_verbatim_or_multiline:9; span_too_long:3; span_too_short:2
+57        qwen2.5-14b  ext     minimal                                                        span_too_long:27; not_verbatim_or_multiline:12; span_too_short:2
+58        qwen2.5-14b  ext      padded                                            not_verbatim_or_multiline:6; span_too_long:4; wrong_span:1; span_too_short:1
+59        qwen2.5-14b  ext    standard                                                          not_verbatim_or_multiline:6; span_too_long:5; span_too_short:2
+60        qwen2.5-14b  gen     concise                                                                                    over_80_words:16; sentence_count_5:2
+61        qwen2.5-14b  gen    detailed                                                                                    over_80_words:24; sentence_count_6:1
+62        qwen2.5-14b  gen  exhaustive                                                                                    over_80_words:29; sentence_count_5:1
+63        qwen2.5-14b  gen     minimal                                                                                                        over_80_words:18
+64        qwen2.5-14b  gen      padded                                                                    over_80_words:37; sentence_count_5:3; format_other:1
+65        qwen2.5-14b  gen    standard                                                                                    over_80_words:27; sentence_count_5:1
+66        qwen2.5-14b  rsn     concise                                                                                                          wrong_number:6
+67        qwen2.5-14b  rsn    detailed                                                                                   wrong_number:9; format_noncompliant:5
+68        qwen2.5-14b  rsn  exhaustive                                                                                                          wrong_number:9
+69        qwen2.5-14b  rsn     minimal                                                                                                         wrong_number:10
+70        qwen2.5-14b  rsn      padded                                                                                   wrong_number:9; format_noncompliant:5
+71        qwen2.5-14b  rsn    standard                                                                                  format_noncompliant:18; wrong_number:8
+72         qwen2.5-3b  cls     concise                     confused:Sci/Tech->Business:48; confused:World->Business:9; confused:Sports->Business:6; no_label:3
+73         qwen2.5-3b  cls    detailed     confused:Sci/Tech->Business:34; confused:Sports->Business:11; confused:Sci/Tech->World:10; confused:Sports->World:6
+74         qwen2.5-3b  cls  exhaustive     confused:Sci/Tech->Business:34; confused:Sports->Business:9; confused:Sci/Tech->World:5; confused:World->Business:5
+75         qwen2.5-3b  cls     minimal                                   confused:Sci/Tech->Business:52; confused:World->Business:10; extra_text:8; no_label:6
+76         qwen2.5-3b  cls      padded        confused:Sci/Tech->Business:27; confused:Sci/Tech->World:9; confused:Business->World:6; confused:Sports->World:3
+77         qwen2.5-3b  cls    standard       confused:Sci/Tech->Business:30; confused:Sci/Tech->World:8; confused:Sports->Business:8; confused:Sports->World:7
+78         qwen2.5-3b  ext     concise                                          not_verbatim_or_multiline:31; wrong_span:11; span_too_short:5; span_too_long:3
+79         qwen2.5-3b  ext    detailed                                          not_verbatim_or_multiline:22; wrong_span:10; span_too_short:9; span_too_long:3
+80         qwen2.5-3b  ext  exhaustive                                         not_verbatim_or_multiline:26; span_too_short:13; wrong_span:10; span_too_long:2
+81         qwen2.5-3b  ext     minimal                                           not_verbatim_or_multiline:17; span_too_long:9; wrong_span:7; span_too_short:5
+82         qwen2.5-3b  ext      padded                                         not_verbatim_or_multiline:26; wrong_span:19; span_too_short:12; span_too_long:3
+83         qwen2.5-3b  ext    standard                                         not_verbatim_or_multiline:23; wrong_span:14; span_too_short:12; span_too_long:3
+84         qwen2.5-3b  gen     concise                                                 over_80_words:8; sentence_count_1:5; format_other:1; sentence_count_5:1
+85         qwen2.5-3b  gen    detailed                                                over_80_words:15; sentence_count_1:8; sentence_count_5:3; format_other:2
+86         qwen2.5-3b  gen  exhaustive                                                                                    over_80_words:33; sentence_count_1:6
+87         qwen2.5-3b  gen     minimal                                                                     over_80_words:5; sentence_count_1:3; format_other:1
+88         qwen2.5-3b  gen      padded                                               over_80_words:14; sentence_count_1:11; sentence_count_5:2; format_other:1
+89         qwen2.5-3b  gen    standard                                               over_80_words:36; sentence_count_1:13; sentence_count_5:2; format_other:2
+90         qwen2.5-3b  rsn     concise                                                                                 wrong_number:26; format_noncompliant:11
+91         qwen2.5-3b  rsn    detailed                                                                                 format_noncompliant:34; wrong_number:29
+92         qwen2.5-3b  rsn  exhaustive                                                                                  wrong_number:37; format_noncompliant:4
+93         qwen2.5-3b  rsn     minimal                                                                                 format_noncompliant:41; wrong_number:25
+94         qwen2.5-3b  rsn      padded                                                                                 wrong_number:29; format_noncompliant:12
+95         qwen2.5-3b  rsn    standard                                                                                 format_noncompliant:71; wrong_number:28
+96         qwen2.5-7b  cls     concise   confused:Sci/Tech->Business:31; confused:Sci/Tech->World:6; confused:Business->Sci/Tech:5; confused:World->Business:5
+97         qwen2.5-7b  cls    detailed        confused:Sci/Tech->Business:35; confused:Sci/Tech->World:7; confused:World->Business:5; confused:World->Sports:3
+98         qwen2.5-7b  cls  exhaustive   confused:Sci/Tech->Business:26; confused:Sci/Tech->World:8; confused:World->Business:4; confused:Business->Sci/Tech:3
+99         qwen2.5-7b  cls     minimal     confused:Sci/Tech->Business:33; confused:World->Business:9; confused:Business->Sci/Tech:5; confused:World->Sports:3
+100        qwen2.5-7b  cls      padded  confused:Sci/Tech->Business:21; confused:Sci/Tech->World:10; confused:Business->World:4; confused:Business->Sci/Tech:3
+101        qwen2.5-7b  cls    standard   confused:Sci/Tech->Business:28; confused:Sci/Tech->World:7; confused:Business->World:3; confused:Business->Sci/Tech:3
+102        qwen2.5-7b  ext     concise                                            not_verbatim_or_multiline:6; span_too_long:4; wrong_span:2; span_too_short:1
+103        qwen2.5-7b  ext    detailed                                            not_verbatim_or_multiline:8; span_too_long:6; span_too_short:3; wrong_span:1
+104        qwen2.5-7b  ext  exhaustive                                            not_verbatim_or_multiline:7; span_too_long:5; span_too_short:3; wrong_span:1
+105        qwen2.5-7b  ext     minimal                                          span_too_long:26; not_verbatim_or_multiline:16; wrong_span:1; span_too_short:1
+106        qwen2.5-7b  ext      padded                                            span_too_long:9; not_verbatim_or_multiline:7; span_too_short:4; wrong_span:2
+107        qwen2.5-7b  ext    standard                                            span_too_long:8; not_verbatim_or_multiline:6; span_too_short:4; wrong_span:2
+108        qwen2.5-7b  gen     concise                                                                                 sentence_count_1:17; sentence_count_5:1
+109        qwen2.5-7b  gen    detailed                                                                sentence_count_1:10; over_80_words:4; sentence_count_5:1
+110        qwen2.5-7b  gen  exhaustive                                                                                                     sentence_count_1:21
+111        qwen2.5-7b  gen     minimal                                                                                     sentence_count_1:9; over_80_words:1
+112        qwen2.5-7b  gen      padded                                                                sentence_count_1:16; over_80_words:7; sentence_count_5:2
+113        qwen2.5-7b  gen    standard                                                sentence_count_1:10; over_80_words:7; format_other:1; sentence_count_5:1
+114        qwen2.5-7b  rsn     concise                                                                                  wrong_number:14; format_noncompliant:1
+115        qwen2.5-7b  rsn    detailed                                                                                  wrong_number:13; format_noncompliant:1
+116        qwen2.5-7b  rsn  exhaustive                                                                                                         wrong_number:17
+117        qwen2.5-7b  rsn     minimal                                                                                  wrong_number:10; format_noncompliant:5
+118        qwen2.5-7b  rsn      padded                                                                                                         wrong_number:17
+119        qwen2.5-7b  rsn    standard                                                                                                         wrong_number:19
+120  sys_qwen2.5-0.5b  cls     concise                     confused:Sci/Tech->Business:46; confused:World->Business:10; extra_text:6; confused:World->Sports:3
+121  sys_qwen2.5-0.5b  cls    detailed  confused:Sci/Tech->Business:31; confused:World->Business:16; confused:World->Sci/Tech:9; confused:Business->Sci/Tech:6
+122  sys_qwen2.5-0.5b  cls  exhaustive    confused:Sci/Tech->Business:49; confused:World->Business:20; confused:Sci/Tech->World:7; confused:Sports->Business:4
+123  sys_qwen2.5-0.5b  cls     minimal                    confused:Sci/Tech->Business:38; extra_text:16; confused:World->Business:10; confused:World->Sports:5
+124  sys_qwen2.5-0.5b  cls      padded                     confused:Sci/Tech->Business:51; confused:World->Business:13; confused:World->Sports:7; extra_text:6
+125  sys_qwen2.5-0.5b  cls    standard                   confused:Sci/Tech->Business:41; confused:World->Business:20; extra_text:9; confused:World->Sci/Tech:7
+126  sys_qwen2.5-0.5b  ext     concise                                          not_verbatim_or_multiline:38; wrong_span:19; span_too_short:7; span_too_long:4
+127  sys_qwen2.5-0.5b  ext    detailed                                         not_verbatim_or_multiline:30; wrong_span:22; span_too_short:13; span_too_long:7
+128  sys_qwen2.5-0.5b  ext  exhaustive                                         not_verbatim_or_multiline:44; wrong_span:25; span_too_short:10; span_too_long:7
+129  sys_qwen2.5-0.5b  ext     minimal                                          not_verbatim_or_multiline:39; wrong_span:13; span_too_short:6; span_too_long:3
+130  sys_qwen2.5-0.5b  ext      padded                                          not_verbatim_or_multiline:43; wrong_span:20; span_too_short:7; span_too_long:4
+131  sys_qwen2.5-0.5b  ext    standard                                         not_verbatim_or_multiline:35; wrong_span:21; span_too_short:11; span_too_long:8
+132  sys_qwen2.5-0.5b  gen     concise                                               sentence_count_1:48; over_80_words:39; format_other:3; sentence_count_6:1
+133  sys_qwen2.5-0.5b  gen    detailed                                               over_80_words:68; sentence_count_1:34; format_other:4; sentence_count_5:2
+134  sys_qwen2.5-0.5b  gen  exhaustive                                              over_80_words:102; sentence_count_1:26; format_other:6; sentence_count_5:2
+135  sys_qwen2.5-0.5b  gen     minimal                                           sentence_count_1:86; over_80_words:28; sentence_count_5:2; sentence_count_6:2
+136  sys_qwen2.5-0.5b  gen      padded                                               sentence_count_1:75; over_80_words:42; sentence_count_5:1; format_other:1
+137  sys_qwen2.5-0.5b  gen    standard                                               sentence_count_1:53; over_80_words:47; format_other:7; sentence_count_5:3
+138  sys_qwen2.5-0.5b  rsn     concise                                                                                format_noncompliant:233; wrong_number:12
+139  sys_qwen2.5-0.5b  rsn    detailed                                                                                 format_noncompliant:229; wrong_number:9
+140  sys_qwen2.5-0.5b  rsn  exhaustive                                                                                 format_noncompliant:232; wrong_number:9
+141  sys_qwen2.5-0.5b  rsn     minimal                                                                                format_noncompliant:228; wrong_number:17
+142  sys_qwen2.5-0.5b  rsn      padded                                                                                 format_noncompliant:251; wrong_number:1
+143  sys_qwen2.5-0.5b  rsn    standard                                                                                format_noncompliant:208; wrong_number:22
+144  sys_qwen2.5-1.5b  cls     concise                  confused:Sci/Tech->Business:36; confused:Sci/Tech->World:14; confused:Business->World:10; extra_text:5
+145  sys_qwen2.5-1.5b  cls    detailed      confused:Sci/Tech->Business:40; confused:Sci/Tech->World:8; confused:Business->World:5; confused:World->Business:4
+146  sys_qwen2.5-1.5b  cls  exhaustive   confused:Sci/Tech->Business:36; confused:Sci/Tech->World:18; confused:Business->World:14; confused:Sci/Tech->Sports:3
+147  sys_qwen2.5-1.5b  cls     minimal                                   confused:Sci/Tech->Business:36; extra_text:15; confused:Sci/Tech->World:5; no_label:4
+148  sys_qwen2.5-1.5b  cls      padded                   confused:Sci/Tech->Business:34; confused:Sci/Tech->World:12; confused:Business->World:6; extra_text:5
+149  sys_qwen2.5-1.5b  cls    standard        confused:Sci/Tech->Business:44; confused:Sci/Tech->World:7; confused:Business->World:5; confused:Sports->World:4
+150  sys_qwen2.5-1.5b  ext     concise                                           not_verbatim_or_multiline:22; span_too_long:5; wrong_span:4; span_too_short:3
+151  sys_qwen2.5-1.5b  ext    detailed                                          not_verbatim_or_multiline:26; span_too_long:12; span_too_short:7; wrong_span:6
+152  sys_qwen2.5-1.5b  ext  exhaustive                                          not_verbatim_or_multiline:26; span_too_long:10; wrong_span:9; span_too_short:8
+153  sys_qwen2.5-1.5b  ext     minimal                                          not_verbatim_or_multiline:15; span_too_long:12; span_too_short:3; wrong_span:1
+154  sys_qwen2.5-1.5b  ext      padded                                           not_verbatim_or_multiline:18; wrong_span:9; span_too_long:7; span_too_short:5
+155  sys_qwen2.5-1.5b  ext    standard                                           not_verbatim_or_multiline:22; span_too_short:9; span_too_long:6; wrong_span:6
+156  sys_qwen2.5-1.5b  gen     concise                                               over_80_words:125; sentence_count_1:4; sentence_count_5:3; format_other:1
+157  sys_qwen2.5-1.5b  gen    detailed                                               over_80_words:148; sentence_count_5:6; sentence_count_1:3; format_other:1
+158  sys_qwen2.5-1.5b  gen  exhaustive                                               over_80_words:125; sentence_count_5:5; sentence_count_1:3; format_other:1
+159  sys_qwen2.5-1.5b  gen     minimal                                               over_80_words:59; sentence_count_1:44; format_other:1; sentence_count_5:1
+160  sys_qwen2.5-1.5b  gen      padded                                               over_80_words:116; sentence_count_1:7; sentence_count_5:6; format_other:2
+161  sys_qwen2.5-1.5b  gen    standard                                               over_80_words:122; sentence_count_1:6; sentence_count_5:3; format_other:1
+162  sys_qwen2.5-1.5b  rsn     concise                                                                                format_noncompliant:145; wrong_number:25
+163  sys_qwen2.5-1.5b  rsn    detailed                                                                                 wrong_number:73; format_noncompliant:20
+164  sys_qwen2.5-1.5b  rsn  exhaustive                                                                                 wrong_number:76; format_noncompliant:52
+165  sys_qwen2.5-1.5b  rsn     minimal                                                                                format_noncompliant:150; wrong_number:28
+166  sys_qwen2.5-1.5b  rsn      padded                                                                                format_noncompliant:149; wrong_number:30
+167  sys_qwen2.5-1.5b  rsn    standard                                                                                 wrong_number:63; format_noncompliant:55

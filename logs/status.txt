@@ -1,0 +1,19 @@
+qwen2.5-7b ok
+qwen2.5-1.5b ok (gpu3)
+qwen2.5-0.5b ok (gpu3)
+sys_qwen2.5-1.5b ok (gpu3)
+sys_qwen2.5-0.5b ok (gpu3)
+qwen2.5-14b ok
+qwen2.5-3b ok
+llama3.1-8b-awq fail attempt 1
+llama3.1-8b-awq fail attempt 2
+llama3.1-8b-awq fail attempt 3
+llama3.1-8b-awq fail attempt 4
+llama3.1-8b-awq fail attempt 5
+qwen2.5-32b-awq fail attempt 1
+qwen2.5-32b-awq fail attempt 2
+qwen2.5-32b-awq fail attempt 3
+qwen2.5-32b-awq fail attempt 4
+qwen2.5-32b-awq fail attempt 5
+ALLDONE
+run_wait.sh stopped manually: GPUs stayed full (llama3.1-8b-awq, qwen2.5-32b-awq not run)

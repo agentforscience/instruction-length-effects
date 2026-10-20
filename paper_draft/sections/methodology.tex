@@ -1,0 +1,103 @@
+\section{Method}
+\label{sec:method}
+
+Our main question is: {\bf how does the length and detail of a task instruction affect task performance and format compliance, and does the effect depend on task type and model size?}
+
+\subsection{Instruction tiers}
+\label{sec:tiers}
+
+For each task we write five instructions that form a nested ladder.
+Let $I_1,\dots,I_5$ denote the \minimal, \concise, \standard, \detailed, and \exhaustive tiers.
+We construct $I_k = I_{k-1} \oplus B_k$, where $B_k$ is a new block of text and $\oplus$ is concatenation.
+Tier $k$ therefore contains all information in tier $k-1$.
+Every tier, including \minimal, states the same core output-format constraint, so compliance is comparable across tiers.
+The added blocks are:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item \minimal: task plus format constraint (18--19 words).
+    \item \concise: label definitions or task basics (40--55 words in total).
+    \item \standard: numbered guidelines and key decision rules (141--172 words).
+    \item \detailed: edge cases, tie-breaking rules, and quality criteria (316--387 words).
+    \item \exhaustive: purpose and rationale, a step-by-step procedure, many more rules, a list of common mistakes, a restated format, and a final reminder (820--1{,}018 words).
+\end{itemize}
+We wrote the \exhaustive tier to look like a realistic ``kitchen-sink'' prompt: long and redundant but internally consistent.
+It never contradicts earlier tiers.
+
+\para{Padding control.}
+To separate the effect of more tokens from the effect of more content, we build a \padded condition: the \standard text followed by task-irrelevant office boilerplate (a narrative about a documentation program) truncated so that the total word count matches \exhaustive.
+The filler contains no task instructions and no label information.
+If long instructions hurt because of token count alone, \padded should behave like \exhaustive; if content drives the effect, \padded should behave like \standard.
+\Tabref{tab:tiers} lists word and token counts for all six conditions.
+
+\begin{table}[t]
+\centering
+\caption{Instruction length per condition. Words count the instruction only; tokens count the full prompt including the task input (mean over items). The tiers are nested; \padded is word-matched to \exhaustive and has 7--12\% fewer tokens.}
+\label{tab:tiers}
+\small
+\begin{tabular}{@{}lcccccccc@{}}
+\toprule
+& \multicolumn{4}{c}{Instruction words} & \multicolumn{4}{c}{Prompt tokens (incl.\ input)} \\
+\cmidrule(lr){2-5} \cmidrule(lr){6-9}
+Condition & \textsc{Cls} & \textsc{Ext} & \textsc{Gen} & \textsc{Rsn} & \textsc{Cls} & \textsc{Ext} & \textsc{Gen} & \textsc{Rsn} \\
+\midrule
+\minimal & 19 & 18 & 19 & 18 & 112 & 230 & 621 & 117 \\
+\concise & 55 & 50 & 50 & 40 & 172 & 273 & 658 & 142 \\
+\standard & 163 & 172 & 165 & 141 & 323 & 439 & 809 & 270 \\
+\detailed & 387 & 360 & 343 & 316 & 605 & 672 & 1032 & 486 \\
+\exhaustive & 1018 & 866 & 897 & 820 & 1461 & 1325 & 1723 & 1091 \\
+\midrule
+\padded & 1018 & 866 & 897 & 820 & 1291 & 1225 & 1638 & 1038 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Tasks and data}
+
+We use four task types, each with one public dataset.
+For each task we draw a fixed random sample of $n=252$ items (seed 42) and use the same items in every condition, so all comparisons are paired.
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item {\bf Classification}: \agnews~\citep{zhang2015character} test set, stratified to 63 items per class. Format: answer with only one of World, Sports, Business, Sci/Tech. Metric: accuracy (chance is 25\%).
+    \item {\bf Extraction}: \squad v1.1~\citep{rajpurkar2016squad} validation set, one question per passage. Format: only a span copied verbatim from the passage. Metric: token F1.
+    \item {\bf Generation}: \cnndm 3.0.0~\citep{hermann2015teaching,see2017get} test set, articles truncated to 500 words. Format: 2--4 sentences, at most 80 words, summary only. Metric: ROUGE-L F1~\citep{lin2004rouge} against the reference highlights.
+    \item {\bf Reasoning}: \gsm~\citep{cobbe2021training} test set. Format: the last line is \texttt{Final answer: <number>}. Metric: exact-match accuracy.
+\end{itemize}
+
+\subsection{Models and decoding}
+
+No API access was available, so we run five open-weight instruction-tuned models locally: \qwen-\{0.5B, 1.5B, 3B, 7B, 14B\}-Instruct~\citep{qwen2025qwen25}, all in bf16, served with vLLM~\citep{kwon2023efficient}.
+We use greedy decoding (temperature 0, seed 42), the default chat template, and place the instruction in the user turn before the task input.
+The maximum number of new tokens is 16 (classification), 64 (extraction), 200 (generation), and 768 (reasoning), with a 4{,}096-token context.
+Each model processes $6 \times 4 \times 252 = 6{,}048$ prompts.
+As a robustness check, we rerun 0.5B and 1.5B with the instruction in the system message.
+We also planned to run Llama-3.1-8B-Instruct and \qwen-32B-Instruct, but other jobs occupied the shared GPUs for the rest of the session and these runs could not start.
+
+\subsection{Scoring}
+
+We separate \emph{what} the model answers from \emph{how} it formats the answer.
+
+\para{Task score (lenient parsing).}
+A formatting slip should not count as a wrong answer.
+For classification we take the first label or synonym mentioned; for extraction, the first line with ``Answer:'' prefixes and quotes removed; for reasoning, the number after ``Final answer,'' falling back to the last number in the output.
+
+\para{Compliance (strict parsing).}
+Classification output must be exactly a label.
+Extraction output must be one line, a verbatim substring of the passage, at most 30 words.
+Generation output must have 2--4 sentences, at most 80 words, and no bullets, markdown, or preamble such as ``Here is\ldots''.
+Reasoning output must end with a line that matches \texttt{Final answer: <number>} exactly.
+
+\subsection{Hypotheses and statistics}
+\label{sec:hypotheses}
+
+We pre-registered the following hypotheses:
+{\bf H1}: classification and extraction peak at \standard and drop 3--7 points at \exhaustive;
+{\bf H2}: generation improves monotonically up to \detailed;
+{\bf H3}: reasoning does not change beyond \concise;
+{\bf H4}: 7B degrades more from \exhaustive than larger models;
+{\bf H5}: compliance peaks at \standard for every task;
+{\bf H6}: comparing \padded with \standard and \exhaustive separates token dilution from content.
+
+We compute 95\% bootstrap confidence intervals over items (5{,}000 resamples) for each model$\times$task$\times$condition cell.
+For paired differences we report bootstrap CIs and two-sided sign-flip permutation tests.
+We apply Holm correction within the primary family of 20 \standard\versus\exhaustive tests (5 models $\times$ 4 tasks) and within the 40 padding-control tests.
+For H2 we fit an item-level linear slope over tiers \minimal to \detailed.
+For H3 we use Cochran's Q over \concise to \exhaustive, plus an equivalence check (90\% CI within $\pm$3 points).
+For H4 we compute an item-level paired difference-in-differences between 7B and 14B, and the Spearman correlation between the \standard$\to$\exhaustive drop and log model size.
